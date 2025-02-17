@@ -13,6 +13,5 @@
  */
 
 function checkTree(root: TreeNode | null): boolean {
-    const isEqual = root.val === root.left.val + root.right.val;
-    return isEqual;
+    return root.val === root.left.val + root.right.val;
 };
