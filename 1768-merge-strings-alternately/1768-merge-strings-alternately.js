@@ -4,15 +4,12 @@
  * @return {string}
  */
 var mergeAlternately = function (word1, word2) {
-    let mergedWord = [];
+    let mergedWord = "";
 
-    for (let i = 0; i < word1.length; i++) {
-        mergedWord[i * 2] = word1[i];
+    for (let i = 0; i < Math.max(word1.length, word2.length); i++) {
+        if (i < word1.length) mergedWord += word1[i];
+        if (i < word2.length) mergedWord += word2[i];
     }
 
-    for (let i = 0; i < word2.length; i++) {
-        mergedWord[i * 2 + 1] = word2[i];
-    }
-
-    return mergedWord.join('');
+    return mergedWord;
 };
