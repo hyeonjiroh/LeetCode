@@ -2,16 +2,12 @@
  * @param {number[]} arr
  * @return {boolean}
  */
-var uniqueOccurrences = function (arr) {
-    const countMap = {};
-
-    for (const num of arr) {
-        countMap[num] = (countMap[num] || 0) + 1;
+var uniqueOccurrences = function(arr) {
+    const freq = new Map();
+    for (const x of arr) {
+        freq.set(x, (freq.get(x) || 0) + 1);
     }
 
-    const frequencies = Object.values(countMap);
-
-    const unique = new Set(frequencies);
-
-    return frequencies.length === unique.size;
+    const s = new Set(freq.values());
+    return freq.size === s.size;
 };
