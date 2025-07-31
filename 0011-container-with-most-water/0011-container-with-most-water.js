@@ -3,19 +3,18 @@
  * @return {number}
  */
 var maxArea = function (height) {
-    let start = 0;
-    let end = height.length - 1;
-    let waterAmount = 0;
+    let left = 0;
+    let right = height.length - 1;
     let maxAmount = 0;
 
-    while (start < end) {
-        let width = end - start;
-        let minHeight = Math.min(height[start], height[end]);
+    while (left < right) {
+        const width = right - left;
+        const minHeight = Math.min(height[left], height[right]);
 
-        waterAmount = width * minHeight;
-        maxAmount = Math.max(waterAmount, maxAmount);
+        const currentAmount = width * minHeight;
+        maxAmount = Math.max(currentAmount, maxAmount);
 
-        height[start] < height[end] ? start++ : end--;
+        height[left] < height[right] ? left++ : right--;
     }
 
     return maxAmount;
