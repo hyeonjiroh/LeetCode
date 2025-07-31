@@ -8,7 +8,7 @@ var maxArea = function (height) {
     let waterAmount = 0;
     let maxAmount = 0;
 
-    while (start !== end) {
+    while (start < end) {
         let width = end - start;
         let minHeight = Math.min(height[start], height[end]);
 
