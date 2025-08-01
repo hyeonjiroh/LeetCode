@@ -4,14 +4,13 @@
  * @return {number}
  */
 var maxOperations = function (nums, k) {
+    nums.sort((a, b) => a - b);
     let count = 0;
     let left = 0;
     let right = nums.length - 1;
-    const sortedNums = nums.sort();
 
     while (left < right) {
-        const sum = sortedNums[left] + sortedNums[right];
-
+        const sum = nums[left] + nums[right];
         if (sum === k) {
             count++;
             left++;
