@@ -11,21 +11,14 @@
  * @return {number}
  */
 var goodNodes = function (root) {
-    let good = 0;
-
     function countGood(node, max) {
         if (!node) return 0;
 
-        if (node.val >= max) {
-            good++;
-        }
+        const good = node.val >= max ? 1 : 0;
+        const nextMax = Math.max(max, node.val);
 
-        max = Math.max(max, node.val);
-
-        countGood(node.left, max);
-        countGood(node.right, max);
+        return good + countGood(node.left, nextMax) + countGood(node.right, nextMax);
     }
 
-    countGood(root, root.val);
-    return good;
+    return countGood(root, -Infinity);
 };
